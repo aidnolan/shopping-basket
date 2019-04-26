@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import Item from './Item';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      items: [
+        {key: 1,name:"Lonely Planet Italy", category: "exempt", price: 10.49, quantity: 0},
+        {key: 2, name:"The White Album by The Beatles", category: "sales tax", price: 11.00, quantity:0} 
+      ]
+    }
+  };
+   
+  render(){
+    const items = this.state.items 
+    const itemList = items.map((item)=>{
+    console.log(item.name);
+      return(
+        
+        <Item
+          key={item.key}
+          name={item.name}
+          category={item.category}
+          price={item.price}
+          quantity={item.quantity}
+        />
+      ) 
+    });
+    return (
+      <div className="App">
+        {itemList}
+      </div>
+    );
+  }  
 }
 
 export default App;
