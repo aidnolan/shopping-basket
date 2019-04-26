@@ -4,7 +4,8 @@
 
 .itemBox {
   border: solid 1px black;
-  margin: 50px 100px;
+  margin: 20px 30%;
   text-align: left;
-  padding-left: 50px
+  padding-left: 50px;
+  width: 40%
 }

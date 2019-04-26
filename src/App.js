@@ -1,28 +1,24 @@
 import React, {Component} from 'react';
 import './App.css';
-import Item from './Item';
+import Item from './Components/Item';
+import itemData from './itemData';
 
 class App extends Component {
   constructor(){
     super();
     this.state = {
-      items: [
-        {key: 1,name:"Lonely Planet Italy", category: "exempt", price: 10.49, quantity: 0},
-        {key: 2, name:"The White Album by The Beatles", category: "sales tax", price: 11.00, quantity:0} 
-      ]
+      items: itemData
     }
   };
    
   render(){
-    const items = this.state.items 
+    const items = this.state.items;
     const itemList = items.map((item)=>{
-    console.log(item.name);
       return(
-        
         <Item
           key={item.key}
           name={item.name}
-          category={item.category}
+          tax={item.tax}
           price={item.price}
           quantity={item.quantity}
         />
