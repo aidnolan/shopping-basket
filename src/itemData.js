@@ -11,7 +11,7 @@ const itemData = [
         key: 1,
         name:"Music CD",
         tax: "sales tax",
-        price: 11.00,
+        price: 11,
         quantity: 1,
     },
     {
@@ -22,7 +22,7 @@ const itemData = [
         quantity: 1
     },
     {
-        key: 5,
+        key: 3,
         name:"Imported box of chocolates",
         tax: "import",
         price: 10.49,
@@ -38,14 +38,14 @@ const itemData = [
     
     
     {
-        key: 6,
+        key: 5,
         name:"Bottle of perfume",
         tax: "sales",
         price: 10.49,
         quantity: 1
     },
     {
-        key: 7,
+        key: 6,
         name:"Packet of painkillers",
         tax: "import",
         price: 10.49,
