@@ -38,6 +38,7 @@ class App extends Component {
   handleDecrease(event){
     const displayList = [...this.state.items];
     const updatedList = displayList.map(item => {
+      // need to handle removal of item from items state if zero
       if(item.name === event.target.name && item.quantity !==0){
         item.quantity -=1
         return item
@@ -52,47 +53,52 @@ class App extends Component {
   }
   
   handleAdd(event){
-    const displayItem = itemData.filter(item => {
-      return item.name == event.target.value;
-    });
-
-    const displayList = [...this.state.items];
-    let presentInArray = false;
-    
-    if(displayList.length > 0){
-      const updatedList = displayList.map((item, index, arr) =>{
-        if(displayItem[0].name === item.name){
-          presentInArray = true;
-          item.quantity +=1;
-          return item
+    console.log(event.target.value)
+    if(event.target.value === "void"){
+      return
+    } else {
+      const displayItem = itemData.filter(item => {
+        return item.name === event.target.value;
+      });
+  
+      const displayList = [...this.state.items];
+      let presentInArray = false;
+      
+      if(displayList.length > 0){
+        const updatedList = displayList.map((item) =>{
+          if(displayItem[0].name === item.name){
+            presentInArray = true;
+            item.quantity +=1;
+            return item
+          } else {
+            console.log(displayList)
+            return item;
+          }
+      });
+  
+        if(presentInArray){
+          this.setState({
+            items: updatedList
+          });
         } else {
-          console.log(displayList)
-          return item;
+          displayItem[0].quantity+=1;
+          this.setState({
+            items: updatedList.concat(displayItem)
+          })
         }
-    });
-
-      if(presentInArray){
-        this.setState({
-          items: updatedList
-        });
+        
+        
       } else {
         displayItem[0].quantity+=1;
-        this.setState({
-          items: updatedList.concat(displayItem)
-        })
+        this.setState(prevState => (
+          {
+            items: prevState.items.concat(displayItem)
+          }
+        ))
       }
+          
       
-      
-    } else {
-      displayItem[0].quantity+=1;
-      this.setState(prevState => (
-        {
-          items: prevState.items.concat(displayItem)
-        }
-      )
-      )
     }
-        
     
   } 
 
