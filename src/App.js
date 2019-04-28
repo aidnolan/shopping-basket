@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import './App.css';
 import Item from './Components/Item';
 import itemData from './itemData';
-import ItemSelect from "./Components/ItemSelect";
+import ItemSelect from './Components/ItemSelect';
+import TotalCost from './Components/TotalCost';
 
 class App extends Component {
   constructor(){
@@ -15,7 +16,7 @@ class App extends Component {
     this.handleIncrease = this.handleIncrease.bind(this);
     this.handleDecrease = this.handleDecrease.bind(this);
 }
-
+  // Increase quantity of specific item already in basket
   handleIncrease(event){
     const displayList = [...this.state.items];
     const updatedList = displayList.map(item => {
@@ -26,14 +27,14 @@ class App extends Component {
         return item;
       }
     });
-    console.log(updatedList)
     this.setState({
       items: updatedList
     })
       
       
   }
-
+  // Decrease quantity of specific item already in basket.
+  // Item deleted from array when quantity reaches zero
   handleDecrease(event){
     const displayList = [...this.state.items];
     let updatedList = displayList.map(item => {
@@ -55,8 +56,10 @@ class App extends Component {
     })
   }
   
+  // Add item to basket when option clicked on dropdown
+  //(Note: When item is already selected clicking on this option again will do nothing. Deselect and re-select for normal functionality or use quantity +/-) 
+  
   handleAdd(event){
-    console.log(event.target.value)
     if(event.target.value === "void"){
       return
     } else {
@@ -74,7 +77,6 @@ class App extends Component {
             item.quantity +=1;
             return item
           } else {
-            console.log(displayList)
             return item;
           }
       });
@@ -104,14 +106,12 @@ class App extends Component {
   } 
 
   render(){
-    //review optgroup for single dropdown
+    // Create options dropdown list with categories
     const categories = itemData.map(item =>item.category)
     .filter((item, ind, arr)=>{
       return arr.indexOf(item) === ind;
     });
-    console.log(categories);
-    const categoryLists = categories.map(category => {
-      console.log(category)
+    const options = categories.map(category => {
       return(
         <optgroup key={category} label={category}>
           {itemData.filter(item => {
@@ -122,17 +122,15 @@ class App extends Component {
         </optgroup>
       )
     })
-    console.log(categoryLists);
-    // const optionsList = itemData.map((item)=>{
-    //   return <option value={item.name} key={item.key}>{item.name} - Price: £{item.price.toFixed(2)}</option>
-    // });
+    
+    // Render all Items currently in basket
     const items = this.state.items;
     const itemList = items.map((item)=>{
         return(
           <Item
               key={item.key}
               name={item.name}
-              tax={item.tax}
+              taxDue={item.taxDue}
               price={item.price}
               quantity={item.quantity}
               handleIncrease={this.handleIncrease}
@@ -144,7 +142,7 @@ class App extends Component {
     return (
       <div className="App">
         <ItemSelect
-          options={categoryLists}
+          options={options}
           handleAdd={this.handleAdd}
          />
         <table>
@@ -168,6 +166,7 @@ class App extends Component {
               </th>
             </tr>
             {itemList}
+            <TotalCost basketList={this.state.items}/>
           </tbody>
         </table>
         
