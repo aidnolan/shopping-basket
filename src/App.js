@@ -17,12 +17,11 @@ class App extends Component {
 }
 
   handleIncrease(event){
-    
     const displayList = [...this.state.items];
     const updatedList = displayList.map(item => {
       if(item.name === event.target.name){
         item.quantity +=1
-        return item
+        return item;
       } else {
         return item;
       }
@@ -37,16 +36,20 @@ class App extends Component {
 
   handleDecrease(event){
     const displayList = [...this.state.items];
-    const updatedList = displayList.map(item => {
-      // need to handle removal of item from items state if zero
-      if(item.name === event.target.name && item.quantity !==0){
+    let updatedList = displayList.map(item => {
+      if(item.name === event.target.name && item.quantity !==1){
         item.quantity -=1
-        return item
+        return item;
+      } else if(item.name === event.target.name && item.quantity === 1) {
+        item.quantity = 0;
+        return item; 
       } else {
         return item;
       }
     });
-    
+    updatedList = updatedList.filter(item => {
+      return item.quantity > 0;
+    })
     this.setState({
       items: updatedList
     })
@@ -96,17 +99,33 @@ class App extends Component {
           }
         ))
       }
-          
-      
     }
     
   } 
 
   render(){
     //review optgroup for single dropdown
-    const optionsList = itemData.map((item)=>{
-      return <option value={item.name} key={item.key}>{item.name} - Price: £{item.price.toFixed(2)}</option>
+    const categories = itemData.map(item =>item.category)
+    .filter((item, ind, arr)=>{
+      return arr.indexOf(item) === ind;
     });
+    console.log(categories);
+    const categoryLists = categories.map(category => {
+      console.log(category)
+      return(
+        <optgroup key={category} label={category}>
+          {itemData.filter(item => {
+            return category === item.category;
+          }).map(item =>{
+          return <option value={item.name} key={item.key}>{item.name} - Price: £{item.price.toFixed(2)}</option>
+        })};
+        </optgroup>
+      )
+    })
+    console.log(categoryLists);
+    // const optionsList = itemData.map((item)=>{
+    //   return <option value={item.name} key={item.key}>{item.name} - Price: £{item.price.toFixed(2)}</option>
+    // });
     const items = this.state.items;
     const itemList = items.map((item)=>{
         return(
@@ -125,7 +144,7 @@ class App extends Component {
     return (
       <div className="App">
         <ItemSelect
-          options={optionsList}
+          options={categoryLists}
           handleAdd={this.handleAdd}
          />
         <table>

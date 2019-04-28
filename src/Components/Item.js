@@ -3,15 +3,16 @@ import '../App.css';
 
 const Item = (props) => {
     const totalTax= (price) => {
+        const taxRounding = num => Math.ceil(num * 100/5)*5/100;
         if(props.tax === "exempt"){
             return 0;
         } else if(props.tax === "sales"){
-            return (price * 20 / 100);
+            return taxRounding(price * 20 / 100);
         } else if(props.tax === "import") {
-            return (price * 5 / 100);
+            return taxRounding(price * 5 / 100);
         } else {
             // unsure if import tax is taken as a % of (price + sales tax) or sales tax is taken as a % of (price + import tax) or if it is as below
-            return (price * 25 / 100);
+            return taxRounding(price * 25 / 100);
         }
     }
 

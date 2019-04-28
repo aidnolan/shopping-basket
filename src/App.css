@@ -1,3 +1,10 @@
+/* @media only screen and (max-width: 1058px) {
+  table {
+    width: 25%;
+    margin: 30px 25%
+  }
+} */
+
 .App {
   text-align: center;
 }
