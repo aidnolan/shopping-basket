@@ -132,6 +132,5 @@ const itemData = itemSetup.map(item =>{
     item.taxDue = item.taxRate === 0 ? 0 : Math.ceil((item.price * item.taxRate/100) * 100/item.taxRate) * item.taxRate/100;
     return item; 
 })
-console.log(itemData[0])
 
 export default itemData;
