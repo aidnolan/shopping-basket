@@ -72,7 +72,7 @@ const itemSetup = [
         tax: "exempt",
         price: 9.75,
         quantity: 0,
-        category: "Entertainment",
+        category: "Medical Products",
         taxRate: 0,
         taxDue: ""
     },
