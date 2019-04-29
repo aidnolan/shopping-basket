@@ -4,17 +4,21 @@ import Item from './Components/Item';
 import itemData from './itemData';
 import ItemSelect from './Components/ItemSelect';
 import TotalCost from './Components/TotalCost';
+import Header from './Components/Header';
+import Checkout from './Components/Checkout';
 
 class App extends Component {
   constructor(){
     super();
     this.state = {
-      items: []
+      items: [],
+      checkingOut: false
     }
     this.handleAdd = this.handleAdd.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
     this.handleIncrease = this.handleIncrease.bind(this);
     this.handleDecrease = this.handleDecrease.bind(this);
+    this.handleCheckout = this.handleCheckout.bind(this);
 }
   // Increase quantity of specific item already in basket
   handleIncrease(event){
@@ -102,8 +106,13 @@ class App extends Component {
         ))
       }
     }
-    
-  } 
+  }
+
+  handleCheckout (){
+    this.setState({
+      checkingOut: true
+    })
+  }
 
   render(){
     // Create options dropdown list with categories
@@ -138,17 +147,21 @@ class App extends Component {
           />
         )
     });
-  
+    
+    
     return (
       <div className="App">
+        <Checkout basketList={this.state.items} checkingOut={this.state.checkingOut} />
+        <Header />
         <ItemSelect
           options={options}
           handleAdd={this.handleAdd}
          />
+         
         <table>
           <tbody>
 
-            <tr>
+            <tr className="headerRow">
               <th>
                   Product Name
               </th>
@@ -166,7 +179,10 @@ class App extends Component {
               </th>
             </tr>
             {itemList}
-            <TotalCost basketList={this.state.items}/>
+            <TotalCost
+              handleCheckout={this.handleCheckout}
+              basketList={this.state.items}
+            />
           </tbody>
         </table>
         

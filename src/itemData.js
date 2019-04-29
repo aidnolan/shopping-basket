@@ -1,3 +1,10 @@
+// Dummy list of items and map to create list including tax due 
+
+/*Note: "taxDue" calculated as all tax being from base price 
+i.e. 25% for imported items that incur sales tax.
+Could be calculated as import tax on (item price + sales tax due)
+or sales tax on (item price + import tax due) */
+
 const itemSetup = [
     {
         key: 0,
@@ -62,13 +69,63 @@ const itemSetup = [
     {
         key: 6,
         name:"Packet of painkillers",
-        tax: "import",
+        tax: "exempt",
         price: 9.75,
         quantity: 0,
-        category: "Medical Products",
+        category: "Entertainment",
+        taxRate: 0,
+        taxDue: ""
+    },
+    {
+        key: 7,
+        name:"Crime & Punishment",
+        tax: "exempt",
+        price: 7.99,
+        quantity: 0,
+        category: "Books",
+        taxRate: 0,
+        taxDue: ""
+    },
+    {
+        key: 8,
+        name:"Porridge Oats",
+        tax: "exempt",
+        price: 1.70,
+        quantity: 0,
+        category: "Food",
         taxRate: 5,
         taxDue: ""
     },
+    {
+        key: 9,
+        name:"Imported Blu-Ray",
+        tax: "import",
+        price: 15,
+        quantity: 0,
+        category: "Entertainment",
+        taxRate: 25,
+        taxDue: ""
+    },
+    {
+        key: 10,
+        name:"Diamond Earrings",
+        tax: "sales",
+        price: 120,
+        quantity: 0,
+        category: "Luxury",
+        taxRate: 20,
+        taxDue: ""
+    },
+    {
+        key: 11,
+        name:"Bandages",
+        tax: "exempt",
+        price: 4,
+        quantity: 0,
+        category: "Medical Products",
+        taxRate: 0,
+        taxDue: ""
+    }
 ]
 
 const itemData = itemSetup.map(item =>{

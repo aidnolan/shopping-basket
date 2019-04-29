@@ -20,22 +20,22 @@ const TotalCost = (props) => {
     
 
     return(
-        <tr>
-              <th>
+        <tr className="totalRow">
+              <td>
                   TOTALS
-              </th>
-              <th>
+              </td>
+              <td>
                   £{totalPrice.toFixed(2)}
-              </th>
-              <th>
+              </td>
+              <td>
                   £{totalTax.toFixed(2)}
-              </th>
-              <th>
+              </td>
+              <td>
                   £{totalDue.toFixed(2)}
-              </th>
-              <th>
-                  
-              </th>
+              </td>
+              <td id="checkout">
+                  <input onClick={props.handleCheckout} name="checkout" value="Checkout" type="button" />
+              </td>
             </tr>
     )
 }

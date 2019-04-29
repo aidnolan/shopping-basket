@@ -1,5 +1,4 @@
 import React from 'react';
-import '../App.css';
 
 const Item = (props) => {
     return(          
@@ -16,9 +15,12 @@ const Item = (props) => {
             <td>
                 £{((props.price + props.taxDue) * props.quantity).toFixed(2)}
             </td>
-            <td>
-                <button name={props.name} onClick={props.handleDecrease}>-</button>
-                <span> {props.quantity} </span>
+            <td className="quantityDisplay">
+                <button
+                    name={props.name}
+                    onClick={props.handleDecrease}>-
+                </button>
+                <span className="quantityNum">{props.quantity}</span>
                 <button name={props.name} onClick={props.handleIncrease}>+</button>
             </td>
         </tr>        

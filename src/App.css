@@ -1,24 +1,74 @@
-/* @media only screen and (max-width: 1058px) {
-  table {
-    width: 25%;
-    margin: 30px 25%
-  }
-} */
+body {
+  background-image: url('./greentexture.jpg');
+  background-size: 100%;
+}
 
 .App {
   text-align: center;
 }
 
+h1 {
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: 0px 0px;
+  padding: 20px 30px;
+  border: lightyellow solid 1px;
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+button {
+  display: inline-block;
+  border: none;
+  padding: 5px 10px;
+  -webkit-border-radius: 15px; 
+  -moz-border-radius: 15px; 
+  border-radius: 15px;
+  background-color: rgb(147,198,147);;
+}
+
 table {
-  border: solid 1px black;
-  margin: 30px 20%;
+  border: solid 5px lightyellow;
+  margin: 30px 10%;
+  font-size: 20px;
   text-align: left;
-  width: 60%
+  color: white;
+  width: 80%;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-border-radius: 15px; 
+  -moz-border-radius: 15px; 
+  border-radius: 15px;
+  border-radius: 15px;
+}
+tr, td {
+  padding: 9px 30px;
+  text-align: center;
+}
+
+input {
+  display: inline-block;
+  border: none;
+  padding: 9px 10px;
+  -webkit-border-radius: 15px; 
+  -moz-border-radius: 15px; 
+  border-radius: 15px;
+  background-color: rgb(147,198,147);
+  font-size: 15px
 }
 
 select {
-  margin: 30px;
+  width: 60%;
+  margin: 20px 20% 0 20%;
   font-size: 20px;
+  padding: 10px 50px;
+  -webkit-border-radius: 15px; 
+  -moz-border-radius: 15px; 
+  border-radius: 15px;
+  color: black;
+}
+
+optgroup {
+  font-family: arial;
 }
 
 .addRemove {
@@ -26,8 +76,22 @@ select {
   margin: 2px 10px;
 }
 
-tr, td {
-  padding: 9px;
-  text-align: center;
-  
+.quantityDisplay {
+  width: 150px;
 }
+
+.quantityNum {
+  padding: 15px;
+}
+
+.totalRow>td {
+  border-top: 1px solid white;
+  padding-top: 15px;
+  font-size: 26px
+}
+
+#checkout {
+  padding: 0;
+}
+
+
