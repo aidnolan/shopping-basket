@@ -102,7 +102,8 @@ optgroup {
 }
 
 .quantityDisplay {
-  width: 150px;
+  width: 120px;
+  
 }
 
 .quantityNum {
@@ -125,7 +126,7 @@ optgroup {
   margin-top: 100px;
   background-color: rgb(255,255,255);
   border: 2px solid rgba(0, 0, 0, 0.8);
-  width: 90%;
+  width: 65%;
   padding: 10px
 }
 
@@ -147,7 +148,20 @@ optgroup {
     width: 80%;
   }
 
+  td>input {
+    padding: 6px
+  }
+
   button {
     padding: 1px 5px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  table, td, tr, .totalRow>td, td>input {
+    font-size: 8px;
+  }
+  h1 {
+    font-size: 16px
   }
 }
