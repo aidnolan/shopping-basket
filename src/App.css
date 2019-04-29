@@ -34,14 +34,14 @@ table {
   font-size: 20px;
   margin-left: auto;
   margin-right: auto;
-  width: 90%;
+  
 }
 
 .tableBasket {
   border: solid 5px white;
   text-align: center;
   color: white;
-  width: 90%;
+  width: 60%;
   background-color: rgba(0, 0, 0, 0.5);
   float: center;
   margin-top: 30px;
@@ -56,7 +56,7 @@ table {
   border: solid 2px white;
   text-align: center;
   color: white;
-  width: 90%;
+  width: 70%;
   background-color: rgba(0, 0, 0, 0.8);
   -webkit-border-radius: 15px; 
   -moz-border-radius: 15px; 
