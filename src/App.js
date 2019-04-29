@@ -19,6 +19,7 @@ class App extends Component {
     this.handleIncrease = this.handleIncrease.bind(this);
     this.handleDecrease = this.handleDecrease.bind(this);
     this.handleCheckout = this.handleCheckout.bind(this);
+    this.handleCheckoutClose = this.handleCheckoutClose.bind(this);
 }
   // Increase quantity of specific item already in basket
   handleIncrease(event){
@@ -108,10 +109,16 @@ class App extends Component {
     }
   }
 
+  // Brings up checkout receipt
   handleCheckout (){
     this.setState({
       checkingOut: true
     })
+  }
+
+  // Closes receipt window and refreshes Page - Listed as method in expectation that it may be used for something more intuitive in the future
+  handleCheckoutClose(){
+    window.location.reload();
   }
 
   render(){
@@ -151,16 +158,19 @@ class App extends Component {
     
     return (
       <div className="App">
-        <Checkout basketList={this.state.items} checkingOut={this.state.checkingOut} />
+        <Checkout
+          basketList={this.state.items}
+          checkingOut={this.state.checkingOut} 
+          handleCheckoutClose={this.handleCheckoutClose}
+        />
         <Header />
         <ItemSelect
           options={options}
           handleAdd={this.handleAdd}
-         />
+        />
          
-        <table>
+        <table className="tableBasket">
           <tbody>
-
             <tr className="headerRow">
               <th>
                   Product Name
@@ -172,7 +182,7 @@ class App extends Component {
                   Tax due
               </th>
               <th>
-                  Total cost (With Tax)
+                  Total cost<br />(With Tax)
               </th>
               <th>
                   Quantity

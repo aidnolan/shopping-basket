@@ -1,10 +1,10 @@
 import React from 'react';
 
 const TotalCost = (props) => {
-    
-    const totalPrice = props.basketList.length ?
-    props.basketList.map((item)=> item.price * item.quantity).reduce((acc, currVal) => acc + currVal)
-    : 0;
+    // Removed as a total of all the single prices didn't seem as important as the others -
+    // const totalPrice = props.basketList.length ?
+    // props.basketList.map((item)=> item.price * item.quantity).reduce((acc, currVal) => acc + currVal)
+    // : 0;
     
     const totalTax = props.basketList.length ?
     props.basketList.map((item)=>
@@ -25,7 +25,7 @@ const TotalCost = (props) => {
                   TOTALS
               </td>
               <td>
-                  £{totalPrice.toFixed(2)}
+                 
               </td>
               <td>
                   £{totalTax.toFixed(2)}
@@ -33,7 +33,7 @@ const TotalCost = (props) => {
               <td>
                   £{totalDue.toFixed(2)}
               </td>
-              <td id="checkout">
+              <td style={{padding: 0}}>
                   <input onClick={props.handleCheckout} name="checkout" value="Checkout" type="button" />
               </td>
             </tr>
