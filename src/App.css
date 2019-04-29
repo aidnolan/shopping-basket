@@ -41,7 +41,7 @@ table {
   border: solid 5px white;
   text-align: center;
   color: white;
-  width: 60%;
+  width: 50%;
   background-color: rgba(0, 0, 0, 0.5);
   float: center;
   margin-top: 30px;
@@ -56,7 +56,7 @@ table {
   border: solid 2px white;
   text-align: center;
   color: white;
-  width: 70%;
+  width: 50%;
   background-color: rgba(0, 0, 0, 0.8);
   -webkit-border-radius: 15px; 
   -moz-border-radius: 15px; 
@@ -119,3 +119,35 @@ optgroup {
   font-size: 20px
 }
 
+.checkoutScreenStyle {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  background-color: rgb(255,255,255);
+  border: 2px solid rgba(0, 0, 0, 0.8);
+  width: 90%;
+  padding: 10px
+}
+
+@media only screen and (max-width: 980px) {
+  table, td, tr, .totalRow>td, td>input {
+    font-size: 14px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  select {
+    text-align: left;
+    font-size: 12px;
+    width: 70%;
+    padding: 5px 0
+  }
+
+  .tableBasket{
+    width: 80%;
+  }
+
+  button {
+    padding: 1px 5px;
+  }
+}

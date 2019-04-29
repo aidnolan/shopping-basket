@@ -14,16 +14,6 @@ const Checkout = (props) => {
         display: 'none'
     }
 
-    const checkoutScreenStyle = {
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        marginTop: '100px',
-        backgroundColor: 'rgb(255,255,255)',
-        border: '2px solid rgba(0, 0, 0, 0.8)',
-        width: '90%',
-        // padding: '40px',
-    }
-
     const receipt = props.basketList.length ?
     props.basketList.map((item)=> {
         return(
@@ -44,7 +34,7 @@ const Checkout = (props) => {
 
     return(
         <div style={props.checkingOut ? style : style2}>
-            <div style={checkoutScreenStyle}>
+            <div className="checkoutScreenStyle">
                 <div>
                     <button
                         onClick={props.handleCheckoutClose}
