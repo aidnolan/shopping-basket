@@ -20,6 +20,7 @@ const Checkout = (props) => {
             <tr key={item.name}>
                 <td>{item.name}</td>
                 <td>£{(item.price + item.taxDue).toFixed(2)}</td>
+                <td>£{(item.quantity * item.taxDue).toFixed(2)}</td>
                 <td>{item.quantity}</td>
             </tr>
         )
@@ -58,6 +59,9 @@ const Checkout = (props) => {
                                     </th>
                                     <th>
                                         Total price/item<br />(With Tax)
+                                    </th>
+                                    <th>
+                                        Total tax paid
                                     </th>
                                     <th>
                                         Quantity
