@@ -1,3 +1,8 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 body {
   background-image: url('./images/greentexture.jpg');
   background-size: cover;
@@ -16,7 +21,7 @@ h1 {
   padding: 20px;
   border: white solid 1px;
   color: white;
-  font-family: 'Lucida Sans';
+  font-family: 'Lucida Sans', sans-serif;
   text-align: center;
 }
 
@@ -35,6 +40,10 @@ table {
   margin-left: auto;
   margin-right: auto;
   
+}
+
+h2, h3, h4 {
+  padding: 10px 0;
 }
 
 .tableBasket {

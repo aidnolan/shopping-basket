@@ -1,3 +1,22 @@
+﻿Shopping Basket React app features:
+
+Add/remove items from the list of products
+
+Change quantity of each product in basket
+
+Basket calculates sales (20%) and import (5%) tax on taxable products. Tax per item is rounded to the nearest £0.05
+
+Totals (Tax due and total cost) calculated at the bottom of the basket
+
+Upon checkout, summary of basket is displayed with thank you message, tax paid and total amount paid
+
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
